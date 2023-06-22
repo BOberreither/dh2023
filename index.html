@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-  <div class="container"><h1>dh2023</h1>
+  <div class="container">
+  	<div class="well">
+  	<h1>bits and pieces</h1>
+  	<h3>Poster Presentation DH2023:<br/> Data Modeling as a High-Wire Act. Balancing Requirements, Juggling Vocabularies, and not Falling (Short of Established Best Practice)</h3>
+  	</div>
 
 <div class="well" id="topic_1">
   <h4>Limiting “Work”: A Single Solution for Modeling Occupations</h4>
@@ -18,7 +22,7 @@
 
 <div class="well" id="topic_2">
   <h4>A Minimalist’s Approach to Roles</h4>
-  <div>The documents in Rechtsakten Karl Kraus (Karl Kraus Legal Files) are structured around the ca. 215 legal cases Kraus’ attorney Oskar Samek litigated on Kraus’ behalf. However, the data does not only represent the files but also lists the persons linked to each of these legal cases, an information we wanted to preserve. While there are more complex vocabularies to represent a person’s role in an event, this CIDOC-crm-only approach is rather minimalist and, again, helped keeping the list of reused ontologies short, this way minimizing integration issues. Our modeling states nothing but the facts that there is an activity that a) is being carried out by a person, b) is part of a larger event and c) has an E55 Type, e.g. “being a defendant”, “being a plaintiff”, etc.</div>
+  <div>The documents in <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) are structured around the ca. 215 legal cases Kraus’ attorney Oskar Samek litigated on Kraus’ behalf. However, the data does not only represent the files but also lists the persons linked to each of these legal cases, an information we wanted to preserve. While there are more complex vocabularies to represent a person’s role in an event, this CIDOC-crm-only approach is rather minimalist and, again, helped keeping the list of reused ontologies short, this way minimizing integration issues. Our modeling states nothing but the facts that there is an activity that a) is being carried out by a person, b) is part of a larger event and c) has an E55 Type, e.g. “being a defendant”, “being a plaintiff”, etc.</div>
 </div>
 
 <div class="well" id="topic_3">
@@ -28,38 +32,40 @@
 
 <div class="well" id="topic_4">
   <h4>A One-fits-all Solution for a Mixed Collection</h4>
-  <div>The project Rechtsakten Karl Kraus (Karl Kraus Legal Files) has edited about 4.000 documents from the ca. 215 legal cases Oskar Samek has litigated for his most notorious client, Karl Kraus. These documents are legal motions, verdicts, appeals, but also invoices, newspaper clippings, small file notes. Many of these texts cannot be subsumed under the notion of a “Self-Contained Expression”. The whole collection was moved up the class hierarchy to the broader term “Information Object”, each text being accompanied by its physical carrier, a “Manifestation Singleton”.</div>
+  <div>The project <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) has edited about 4.000 documents from the ca. 215 legal cases Oskar Samek has litigated for his most notorious client, Karl Kraus. These documents are legal motions, verdicts, appeals, but also invoices, newspaper clippings, small file notes. Many of these texts cannot be subsumed under the notion of a “Self-Contained Expression”. The whole collection was moved up the class hierarchy to the broader term “Information Object”, each text being accompanied by its physical carrier, a “Manifestation Singleton”.</div>
 </div>
 
 <div class="well" id="topic_5">
- <h4>Texts Containing Texts (Containing Texts … )</h4>
-  <div>Regarding the text index of Die Fackel, data enrichment and modeling were among the most challenging aspects of the project. This was not a surprise, since the journal comprises 37 volumes from 1899 to 1936 with 415 issues and about 13,000 texts, and the structure of the issues has changed fundamentally again and again over the years (see, e.g., Krolop 2006, Stieg 2022). Over the course of the years, Die Fackel would contain 
-    -	sequences of treatises from different authors which were introduced, re-contextualized and commented on by other texts, 
-    -	monolithic essays filling whole issues
-    -	large sections containing satirical glosses, many of which consisting of nothing but an excerpt from yet another text (mostly newspaper articles)
-    -	rubrics with various editorial pieces, ranging from answers to letters to the editor to documentations of Kraus’ legal cases to information for subscribers
-    -	recurring segments containing aphorisms, poems, riddles
-    -	collections of quotes from prominent writers or politicians
-    -	sections documenting Kraus’ public readings including large quantities of press reviews about the events
-    While FRBRoo offers a number of classes that could be relevant to model these contents – F23 Expression Fragment comes to mind for all the text passages quoted one way or the other –, classifying the contents in-depth and applying a large number of different modelings was not feasible. Instead, some hard decisions had to be made: The core class SK relies on is the FRBRoo’s F22 Self-contained Expression, which is defined among other things by a) completeness b) as intended by an author. This had a huge impact on both the question of text boundaries and authorship attribution. E.g. a collection of Bismarck quotes is now attributed to Kraus, him being the one responsible for the composition as a whole, while the quotes themselves are not part of the data (due to their lack of completeness). 
+	<h4>Texts Containing Texts (Containing Texts Containing Texts … )</h4>
+  <div>Regarding the text index of <i>Die Fackel</i>, data enrichment and modeling were among the most challenging aspects of the project. This was not a surprise, since the journal comprises 37 volumes from 1899 to 1936 with 415 issues and about 13,000 texts, and the structure of the issues has changed fundamentally again and again over the years (see, e.g., Krolop 2006, Stieg 2022). Over the course of the years, <i>Die Fackel</i> would contain 
+    <ul>
+    	<li>sequences of treatises from different authors which were introduced, re-contextualized and commented on by other texts,</li> 
+    	<li>monolithic essays filling whole issues</li>
+    	<li>large sections containing satirical glosses, many of which consisting of nothing but an excerpt from yet another text (mostly newspaper articles)</li>
+    	<li>rubrics with various editorial pieces, ranging from answers to letters to the editor to documentations of Kraus’ legal cases to information for subscribers</li>
+    	<li>recurring segments containing aphorisms, poems, riddles</li>
+    	<li>collections of quotes from prominent writers or politicians</li>
+    	<li>sections documenting Kraus’ public readings including large quantities of press reviews about the events</li>
+    </ul>
+    While FRBRoo offers a number of classes that could be relevant to model these contents – F23 Expression Fragment comes to mind for all the text passages quoted one way or the other –, classifying the contents in-depth and applying a large number of different modelings was not feasible. Instead, some hard decisions had to be made: The core class SK relies on is the FRBRoo’s F22 Self-contained Expression, which is defined among other things by a) completeness b) as intended by an author. This had a huge impact on both the question of text boundaries and authorship attribution. E.g. a collection of Bismarck quotes is now attributed to Kraus, him being the one responsible for the composition as a whole, while the quotes themselves are not part of the data (due to their lack of completeness).<br/>
     In other cases, the hierarchical structure of texts or rubrics that contain (or consist entirely of) other texts (complete texts, that is) is represented by F22 Self-contained Expressions that contain other F22 Self-contained Expressions, each with the corresponding author.
     </div>
 </div>
 
 <div class="well" id="topic_6">
   <h4>Balancing Requirements in Person Mentions</h4>
-   <div>While there surely are more straightforward ways to model the fact that a text mentions a person (something along the line of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further information to each node.</div>
+   <div>While there surely are more straightforward ways to model the fact that a text mentions a person (something along the lines of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further information to each node.</div>
  </div>
 
  <div class="well" id="topic_7">
   <h4>Attributing a Passage to a Text</h4>
-   <div>The INT1_TextPassage and the INT16_Segment represent different notions of “parts of texts”: the former a part of a text as an intellectual creation or work, the latter a part of a specific edition of a text. This is a subtle but necessary distinction. The digital edition of Kraus’ late work Dritte Walpurgisnacht for example contains annotations to some 2,000 text passages quoting other texts. In many cases (often with regard to literary ‘classics’) these references target ‘texts’ in the broader sense of intellectual creations or works, with no indication of a specific edition. In other cases (e.g., when it comes to newspaper articles), Kraus indeed refers to specific publications. The former can be represented by a INT1_TextPassage, the latter by a INT1_TextPassage passage incorporated in a INT16_Segment which in turn is linked to a text in its published form (an F24 Publication Expression).</div>
+   <div>The INT1_TextPassage and the INT16_Segment represent different notions of “parts of texts”: the former a part of a text as an intellectual creation or work, the latter a part of a specific edition of a text. This is a subtle but necessary distinction. The digital edition of Kraus’ late work <i>Dritte Walpurgisnacht</i> for example contains annotations to some 2,000 text passages quoting other texts. In many cases (often with regard to literary ‘classics’) these references target ‘texts’ in the broader sense of intellectual creations or works, with no indication of a specific edition. In other cases (e.g., when it comes to newspaper articles), Kraus indeed refers to specific publications. The former can be represented by a INT1_TextPassage, the latter by a INT1_TextPassage passage incorporated in a INT16_Segment which in turn is linked to a text in its published form (a frbr:F24_Publication_Expression).</div>
  </div>
 
  <div class="well" id="topic_8">
-  <h4>One Link for All Kinds of Intertextual Relations</h4>
-   <div>One of the key areas of the data model is concerned with intertextuality – since Karl Kraus is known for his highly differentiated art of quotation and his texts accordingly show a high frequency of references to other texts. There are many ways to categorize these references: In his literary writings, Kraus makes use of plain citation and quotation, parody, allusion, intentional misquotations, etc., his legal files quote texts that are the subject of dispute or serve as evidence for legal argumentation; in turn, excerpts from these legal files end up in Die Fackel. 
-    SK provides the same modeling for all of these cases: An instance of INT3 Intertextual Relation connected via two properties to the referring and the referred to entities. Other vocabularies offer the possibility to represent intertextuality via properties specifying the mode of the reference. SK opted for the more generic approach, since the reification that comes with it allows for the separation of representing the relation and categorizing it (by adding an E55 Type).
+  <h4>Reification of Intertextual Relations</h4>
+   <div>One of the key areas of the data model is concerned with intertextuality – since Karl Kraus is known for his highly differentiated art of quotation and his texts accordingly show a high frequency of references to other texts. There are many ways to categorize these references: In his literary writings, Kraus makes use of plain citation and quotation, parody, allusion, intentional misquotations, etc., his legal files quote texts that are the subject of dispute or serve as evidence for legal argumentation; in turn, excerpts from these legal files end up in <i>Die Fackel</i>.<br/> 
+    SK provides the same modeling for all of these cases: An instance of INT3 Intertextual Relation connected via two properties to the referring and the referred to entities. Other vocabularies offer the possibility to represent intertextuality via properties specifying the mode of the reference. SK opted for INTRO’s more generic approach, since the reification that comes with it allows for the separation of representing the relation and categorizing it (by adding an E55 Type).
     </div>
  </div>
 </div>
