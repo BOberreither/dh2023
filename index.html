@@ -11,23 +11,57 @@
   <body>
   <div class="container">
   	<div class="well">
-  	<h1>bits and pieces</h1>
-  	<h3>Poster Presentation DH2023:<br/> Data Modeling as a High-Wire Act. Balancing Requirements, Juggling Vocabularies, and not Falling (Short of Established Best Practice)</h3>
+  	<h3>Poster Presentation DH2023</h3>
+  	<h1>Data Modeling as a High-Wire Act. Balancing Requirements, Juggling Vocabularies, and not Falling (Short of Established Best Practice)</h1>
+  	  <h3>Bernhard Oberreither, ACDH-CH,<br/>Austrian Academy of Sciences</h3>
   	</div>
 
 <div class="well" id="topic_1">
   <h4>Limiting “Work”<span class="small"> – a Single Solution for Modeling Occupations</span></h4>
   <div>A common part of biographical data is a person’s occupation. Our source data contains information on 16,500 persons with 18.000 occupations each modelled slightly different – sometimes including time spans, employers, etc. While some ontologies for modelling occupations offer, e.g., differentiations between profession and employment, for the purposes of SK it is sufficient to subsume these under one class of a vocabulary already in use, FRBRoo’s F51 Pursuit. This in turn can be linked to an employer – or to be more precise: to an E4 Period representing the period of existence of the employing entity. Turning to ontologies already in use in the project helped keeping the list of reused ontologies short and minimized integration issues.</div>
+  <div class="well">
+    <figure class="figure">
+      <img src="./img/LimitingWork.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+      <figcaption class="figure-caption">
+        <div class="text-right small">prefixes:<br/>
+          frbr: https://cidoc-crm.org/frbroo/sites/default/files/FRBR2.4-draft.rdfs#<br/>
+          crm: http://www.cidoc-crm.org/cidoc-crm/</div>
+      </figcaption>
+    </figure>
+  </div>
 </div>
 
 <div class="well" id="topic_2">
   <h4>Modeling Roles<span class="small"> with a Minimalist’s Approach</span></h4>
   <div>The documents in <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) are structured around the ca. 215 legal cases Kraus’ attorney Oskar Samek litigated on Kraus’ behalf. However, the data does not only represent the files but also lists the persons linked to each of these legal cases, an information we wanted to preserve. While there are more complex vocabularies to represent a person’s role in an event, this CIDOC-crm-only approach is rather minimalist and, again, helped keeping the list of reused ontologies short, this way minimizing integration issues. Our modeling states nothing but the facts that there is an activity that a) is being carried out by a person, b) is part of a larger event and c) has an E55 Type, e.g. “being a defendant”, “being a plaintiff”, etc.</div>
-</div>
+  <div class="well">
+    <figure class="figure">
+      <img src="./img/Roles.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+      <figcaption class="figure-caption">
+        <div class="text-right small">prefixes:<br/>
+        prefixes:<br/>
+        crm: http://www.cidoc-crm.org/cidoc-crm/</div>
+      </figcaption>
+    </figure>
+  </div></div>
 
 <div class="well" id="topic_3">
   <h4>Bibliographical Standards<span class="small"> upheld with FRBRoo</span></h4>
   <div>We are accustomed to our academic citation standards, but when using an event-based model, even the simple notion of a text with an author and a date breaks down into numerous entities. Still we want to adhere to the standards our source data provides (and that are necessary to achieve a certain precision anyway). SK uses FRBRoo for the modeling of bibliographical information, thus differentiating, e.g., between a text as created by the author and its published expression. Whila  place is always modeled (accurately) as a place of publication, the date related to a text can have several origins: It can be linked to its creation, its publication or, in some cases, its (first) performance.</div>
+  <div class="well">
+    <figure class="figure">
+      <img src="./img/BibliographicalStandards.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+      <figcaption class="figure-caption">
+        On the left: contains persons as: authors of texts, editors of (optional) edited content of, e. g., a journal issue 
+        Center: contains events for: premiere, text creation, creation of edited content, publication – all to be dated via crm:P4_has_time-span – crm:e52_Time-Span
+        On the right: contains expressions for: a text, edited content (optional, containing texts), publication (monograph or periodical issue), parent publication (peridiocal, journal, serial, etc.)
+        (Modeling heavily inspired by PRESSoo.)
+        <div class="text-right small">prefixes:<br/>
+        frbr: https://cidoc-crm.org/frbroo/sites/default/files/FRBR2.4-draft.rdfs#<br/>
+          crm: http://www.cidoc-crm.org/cidoc-crm/</div>
+      </figcaption>
+    </figure>
+  </div>
 </div>
 
 <div class="well" id="topic_4">
@@ -52,19 +86,31 @@
     </div>
   <div class="well">
   <figure class="figure">
-    <img src="./img/TextsInsideTexts.svg" class="img-fluid" alt="Responsive image">
-    <figcaption class="figure-caption text-right small">prefixes:<br/>
+    <img src="./img/TextsInsideTexts.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+    <figcaption class="figure-caption">
+      The periodical <i>Die Fackel</i>, which contains the publication of the <i>Fackel</i> issue 909-911, which contains the edited content of the <i>Fackel</i> issue 909-911, which contains the text <i>Programm-Notizen und -Glossen</i>, which contains the text <i>27. Januar</i> (documenting the accompanying brochure to Kraus’ reading on this date), which contains the text <i>Notizen</i>, which contains the text <i>Lumpazivagabundus</i>.
+      <div class="text-right small">prefixes:<br/>
       frbr: https://cidoc-crm.org/frbroo/sites/default/files/FRBR2.4-draft.rdfs#<br/>
-      crm: http://www.cidoc-crm.org/cidoc-crm/<br/></figcaption>
+      crm: http://www.cidoc-crm.org/cidoc-crm/<br/></div></figcaption>
    </figure>
-  <div>The periodical <i>Die Fackel</i>, which contains the publication of the <i>Fackel</i> issue 909-911, which contains the edited content of the <i>Fackel</i> issue 909-911, which contains the text <i>Programm-Notizen und -Glossen</i>, which contains the text <i>27. Januar</i> (documenting the accompanying brochure to Kraus’ reading on this date), which contains the text <i>Notizen</i>, which contains the text <i>Lumpazivagabundus</i>.</div>
   </div>
+
 </div>
 
 <div class="well" id="topic_6">
   <h4>Person Mentions</h4>
 	<div>While there surely are more straightforward ways to model the fact that a text mentions a person (something along the lines of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model (and besides taking into account the crucial difference between a text feature and its actualization), its specific occurence on a text, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further information to each node.</div>
-  <div><img src="./img/PersonMentions.svg" class="img-fluid" alt="Responsive image"></div>
+  <div class="well">
+    <figure class="figure">
+      <img src="./img/PersonMentions.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+      <figcaption class="figure-caption">
+        A text passage that shows an occurence, i.e. the 'actualization' of a feature – here: a subclass, the reference – which in turn refers to a person.
+        <div class="text-right small">prefixes:<br/>
+        frbr: https://cidoc-crm.org/frbroo/sites/default/files/FRBR2.4-draft.rdfs#<br/>
+        int: https://w3id.org/lso/intro/beta202304#<br/></div></figcaption>
+    </figure>
+  </div>
+  
  </div>
 
  <div class="well" id="topic_7">
