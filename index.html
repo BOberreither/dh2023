@@ -50,11 +50,21 @@
     While FRBRoo offers a number of classes that could be relevant to model these contents – F23 Expression Fragment comes to mind for all the text passages quoted one way or the other –, classifying the contents in-depth and applying a large number of different modelings was not feasible. Instead, some hard decisions had to be made: The core class SK relies on is the FRBRoo’s F22 Self-contained Expression, which is defined among other things by a) completeness b) as intended by an author. This had a huge impact on both the question of text boundaries and authorship attribution. E.g. a collection of Bismarck quotes is now attributed to Kraus, him being the one responsible for the composition as a whole, while the quotes themselves are not part of the data (due to their lack of completeness).<br/>
     In other cases, the hierarchical structure of texts or rubrics that contain (or consist entirely of) other texts (complete texts, that is) is represented by F22 Self-contained Expressions that contain other F22 Self-contained Expressions, each with the corresponding author.
     </div>
+  <div class="well">
+  <figure class="figure">
+    <img src="./img/TextsInsideTexts.svg" class="img-fluid" alt="Responsive image">
+    <figcaption class="figure-caption text-right small">prefixes:<br/>
+      frbr: https://cidoc-crm.org/frbroo/sites/default/files/FRBR2.4-draft.rdfs#<br/>
+      crm: http://www.cidoc-crm.org/cidoc-crm/<br/></figcaption>
+   </figure>
+  <div>The periodical <i>Die Fackel</i>, which contains the publication of the <i>Fackel</i> issue 909-911, which contains the edited content of the <i>Fackel</i> issue 909-911, which contains the text <i>Programm-Notizen und -Glossen</i>, which contains the text <i>27. Januar</i> (documenting the accompanying brochure to Kraus’ reading on this date), which contains the text <i>Notizen</i>, which contains the text <i>Lumpazivagabundus</i>.</div>
+  </div>
 </div>
 
 <div class="well" id="topic_6">
   <h4>Person Mentions</h4>
 	<div>While there surely are more straightforward ways to model the fact that a text mentions a person (something along the lines of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model (and besides taking into account the crucial difference between a text feature and its actualization), its specific occurence on a text, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further information to each node.</div>
+  <div><img src="./img/PersonMentions.svg" class="img-fluid" alt="Responsive image"></div>
  </div>
 
  <div class="well" id="topic_7">
