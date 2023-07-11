@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>dh2023</title>
+    <title>SemanticKraus @ dh2023</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -10,6 +10,7 @@
     <style>
 .hBlue {color:rgb(0, 71, 187); font-family: "Trebuchet", "Lato", Helvetica; font-weight: bold;}
 .hBlack {color:black; font-family: "Trebuchet", "Lato", Helvetica; font-weight: bold;}
+.h4_2 {color: black; text-align: right; font-weight: normal;}
 .hAqua {color:rgb(136, 219, 223); font-family: "Trebuchet", "Lato", Helvetica; font-weight: bold;}
 .well {background: white; margin-top: 5px;}
 .container {background: white;}
@@ -22,11 +23,16 @@ div {font-family: "Palatino", serif;}
   </head>
   <body>
   <div class="container">
+    <div class="well">
+      <h4 class="h4_2">Project: SemanticKraus – Connecting Kraus-Scholarship to the Semantic Web</h4>
+    </div>
   	<div class="well">
-  	<h3 class="hAqua">Poster Presentation DH2023</h3>
+  	  
+  	  <h3 class="hAqua">Poster Presentation DH2023</h3>
   	  <h1 class="hBlue">DATA MODELING AS A HIGH-WIRE ACT</h1>
   	  <h2 class="hBlack">Balancing Requirements, Juggling Vocabularies, and not Falling (Short of Established Best Practice)</h2>
   	  <h3>Bernhard Oberreither, ACDH-CH, Austrian Academy of Sciences</h3>
+  	  
   	</div>
 
     <div class="well" id="topic_1">
@@ -47,7 +53,7 @@ div {font-family: "Palatino", serif;}
 
 <div class="well" id="topic_2">
   <h4>Modeling Roles<span class="small"> with a Minimalist’s Approach</span></h4>
-  <div>The documents in <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) are structured around the ca. 215 legal cases Kraus’ attorney Oskar Samek litigated on Kraus’ behalf. However, the data does not only represent the files but also lists the persons linked to each of these legal cases, an information we wanted to preserve. While there are more complex vocabularies to represent a person’s role in an event, this CIDOC-crm-only approach is rather minimalist and, again, helped keeping the list of reused ontologies short, this way minimizing integration issues. Our modeling states nothing but the facts that there is an activity that a) is being carried out by a person, b) is part of a larger event and c) has an E55 Type, e.g. “being a defendant”, “being a plaintiff”, etc.</div>
+  <div>The documents in <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) are structured around the ca. 215 legal cases Kraus’s attorney Oskar Samek litigated on Kraus’s behalf. However, the data does not only represent the files but also lists the persons linked to each of these legal cases, an information we wanted to preserve. While there are more complex vocabularies to represent a person’s role in an event, this CIDOC-crm-only approach is rather minimalist and, again, helped keeping the list of reused ontologies short, this way minimizing integration issues. Our modeling states nothing but the facts that there is an activity that a) is being carried out by a person, b) is part of a larger event (a legal case) and c) has an E55 Type, e.g. “being a defendant”, “being a plaintiff”, etc.</div>
   <div class="well bg-white">
     <figure class="figure">
       <img src="./img/Roles.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
@@ -62,14 +68,14 @@ div {font-family: "Palatino", serif;}
 
 <div class="well" id="topic_3">
   <h4>Bibliographical Standards<span class="small"> upheld with FRBRoo</span></h4>
-  <div>We are accustomed to our academic citation standards, but when using an event-based model, even the simple notion of a text with an author and a date breaks down into numerous entities. Still we want to adhere to the standards our source data provides (and that are necessary to achieve a certain precision anyway). SK uses FRBRoo for the modeling of bibliographical information, thus differentiating, e.g., between a text as created by the author and its published expression. Whila  place is always modeled (accurately) as a place of publication, the date related to a text can have several origins: It can be linked to its creation, its publication or, in some cases, its (first) performance.</div>
+  <div>We are accustomed to our academic citation standards, but when using an event-based model, even the simple notion of a text with an author and a date breaks down into numerous entities. Still we want to adhere to the standards our source data provides (and that are necessary to achieve a certain precision anyway). SK uses FRBRoo for the modeling of bibliographical information, thus differentiating, e.g., between a text as created by the author and its published expression. Breaking down the concept of a text in this way and consequently introducing numerous events for the creation of these textual entities leads to ambiguities: Dates, for example, must now be explicitly assigned as dates of composition, premiere, or publication - information that often remains implicit in traditional academic practice.</div>
   <div class="well bg-white">
     <figure class="figure">
       <img src="./img/BibliographicalStandards.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
       <figcaption class="figure-caption">
-        On the left: contains persons as: authors of texts, editors of (optional) edited content of, e. g., a journal issue 
-        Center: contains events for: premiere, text creation, creation of edited content, publication – all to be dated via crm:P4_has_time-span – crm:e52_Time-Span
-        On the right: contains expressions for: a text, edited content (optional, containing texts), publication (monograph or periodical issue), parent publication (peridiocal, journal, serial, etc.)
+        On the left: Persons as authors and (optional) editors<br/> 
+        Center: Events representing premieres, text creation, creation of edited content, text publication – all to be dated via crm:P4_has_time-span – crm:e52_Time-Span<br/>
+        On the right: Expressions for (authored) texts, edited texts, publications (monographs or periodical issues), parent publications (peridiocal, journal, serial, etc.)<br/>
         (Modeling heavily inspired by PRESSoo.)
         <div class="text-right small">
           <a href="#ref">> Prefixes and Links</a><br/>
@@ -82,30 +88,33 @@ div {font-family: "Palatino", serif;}
 
 <div class="well" id="topic_4">
   <h4>Mixed Collections<span class="small"> in a One-fits-all Solution </span></h4>
-  <div>The project <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) has edited about 4.000 documents from the ca. 215 legal cases Oskar Samek has litigated for his most notorious client, Karl Kraus. These documents are legal motions, verdicts, appeals, but also invoices, newspaper clippings, small file notes. Many of these texts cannot be subsumed under the notion of a “Self-Contained Expression”. The whole collection was moved up the class hierarchy to the broader term “Information Object”, each text being accompanied by its physical carrier, a “Manifestation Singleton”.</div>
-    <div class="text-right small"><a href="#model">> The Model in Full</a></div>
+  <div>The project <i>Rechtsakten Karl Kraus</i> (<i>Karl Kraus Legal Files</i>) has edited about 4.000 documents from the ca. 215 legal cases Oskar Samek has litigated for his most notorious client, Karl Kraus. These documents are legal motions, verdicts, appeals, but also invoices, newspaper clippings, small file notes. Many of these texts cannot be subsumed under the notion of a “Self-Contained Expression” otherwise favored in the SK data model: The FRBRoo class definition states that those are “immaterial realisations of individual works at a particular time that are regarded as a complete whole” – a rather high standard that is probably not met by, e.g., an invoice.<br/>The whole collection was moved up the class hierarchy to the broader CIDOC crm term “Information Object”, each text being accompanied by its physical carrier, a “Manifestation Singleton”.</div>
+    <div class="text-right small">
+      <a href="#ref">> Prefixes and Links</a><br/>
+      <a href="#model">> The Model in Full</a>
+    </div>
 </div>
 
 <div class="well" id="topic_5">
   <h4>Texts Containing Texts<span class="small"> Containing Texts Containing Texts … </span></h4>
   <div>Regarding the text index of <i>Die Fackel</i>, data enrichment and modeling were among the most challenging aspects of the project. This was not a surprise, since the journal comprises 37 volumes from 1899 to 1936 with 415 issues and about 13,000 texts, and the structure of the issues has changed fundamentally again and again over the years. Over the course of the years, <i>Die Fackel</i> would contain 
     <ul>
-    	<li>sequences of treatises from different authors which were introduced, re-contextualized and commented on by other texts,</li> 
+    	<li>sequences of treatises from different authors which are introduced, re-contextualized and commented on by other texts,</li> 
     	<li>monolithic essays filling whole issues</li>
-    	<li>large sections containing satirical glosses, many of which consisting of nothing but an excerpt from yet another text (mostly newspaper articles)</li>
-    	<li>rubrics with various editorial pieces, ranging from answers to letters to the editor to documentations of Kraus’ legal cases to information for subscribers</li>
+    	<li>large sections containing satirical glosses, many of which consisting of nothing but a title and an excerpt from yet another text (mostly newspaper articles)</li>
+    	<li>rubrics with various editorial pieces, ranging from answers to letters to the editor to documentations of Kraus’s legal cases to information for subscribers</li>
     	<li>recurring segments containing aphorisms, poems, riddles</li>
     	<li>collections of quotes from prominent writers or politicians</li>
-    	<li>sections documenting Kraus’ public readings including large quantities of press reviews about the events</li>
+    	<li>sections documenting Kraus’s public readings including large quantities of press reviews about the events</li>
     </ul>
-    While FRBRoo offers a number of classes that could be relevant to model these contents – F23 Expression Fragment comes to mind for all the text passages quoted one way or the other –, classifying the contents in-depth and applying a large number of different modelings was not feasible. Instead, some hard decisions had to be made: The core class SK relies on is the FRBRoo’s F22 Self-contained Expression, which is defined among other things by a) completeness b) as intended by an author. This had a huge impact on both the question of text boundaries and authorship attribution. E.g. a collection of Bismarck quotes is now attributed to Kraus, him being the one responsible for the composition as a whole, while the quotes themselves are not part of the data (due to their lack of completeness).<br/>
+    While FRBRoo offers a number of classes that could be relevant to model these contents – F23 Expression Fragment comes to mind for all the text passages quoted one way or the other –, classifying the contents in-depth and applying a large number of different modelings was not feasible. Instead, some hard decisions had to be made: The core class SK relies on is the FRBRoo’s F22 Self-contained Expression, which is defined among other things by a) completeness b) as intended by an author. This had a huge impact on both the question of text boundaries and authorship attribution. E.g. a collection of Bismarck quotes is now attributed to Kraus, him being the one responsible for the composition as a whole, while the quotes themselves are not part of the data (due to their lack of completeness). This way, the data model had a profound effect on the selection and shape of the data introduced into the dataset.<br/>
     In other cases, the hierarchical structure of texts or rubrics that contain (or consist entirely of) other texts (complete texts, that is) is represented by F22 Self-contained Expressions that contain other F22 Self-contained Expressions, each with the corresponding author.
     </div>
   <div class="well">
     <figure class="figure">
     <img src="./img/TextsInsideTexts.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
     <figcaption class="figure-caption">
-      A (rather extreme) example: The periodical <i>Die Fackel</i>, which contains the publication of the <i>Fackel</i> issue 909-911, which contains the edited content of the <i>Fackel</i> issue 909-911, which contains the text <i>Programm-Notizen und -Glossen</i>, which contains the text <i>27. Januar</i> (documenting the accompanying brochure to Kraus’ reading on this date), which contains the text <i>Notizen</i>, which contains the text <i>Lumpazivagabundus</i>.
+      A (rather extreme) example of nested texts: The periodical <i>Die Fackel</i>, which contains the publication of the <i>Fackel</i> issue 909-911, which contains the edited content of the <i>Fackel</i> issue 909-911, which contains the text <i>Programm-Notizen und -Glossen</i>, which contains the text <i>27. Januar</i> (documenting the accompanying brochure to Kraus’s reading on this date), which contains the text <i>Notizen</i>, which contains the text <i>Lumpazivagabundus</i>.
       <div class="text-right small">
         <a href="#ref">> Prefixes and Links</a><br/>
         <a href="#model">> The Model in Full</a>
@@ -117,16 +126,17 @@ div {font-family: "Palatino", serif;}
 
 <div class="well" id="topic_6">
   <h4>Person Mentions</h4>
-	<div>While there are more straightforward ways to model the fact that a text mentions a person (something along the lines of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further information to each node. Additionally, this modeling takes into account the crucial difference between a text feature and its actualization, the former being understood as a generalized category, the latter as a text phenomenon possibly fitting the category.</div>
+	<div>While there are more straightforward ways to model the fact that a text mentions a person (something along the lines of “text > mentions > person”), it made sense to do it by stating the fact that a text passage shows an actualization of a feature, the feature being a reference, the reference referring to a person. – That’s a somewhat cumbersome modeling (as well as sentence) for sure, but besides re-using an ontology already in use elsewhere in the model, the resulting reification of the steps between text passage and person offers the future opportunity to directly add further (e.g. provenance) information to each node. Additionally, this modeling takes into account the crucial difference between a text feature and its actualization, the former being understood as a generalized category, the latter as a text phenomenon assigned to that category.</div>
   <div class="well bg-white">
     <figure class="figure">
       <img src="./img/PersonMentions.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
       <figcaption class="figure-caption">
-        A text passage that shows an occurence, i.e. the 'actualization' of a feature – here: a subclass, the reference – which in turn refers to a person.
+        A text passage that shows an occurence, i.e. the ‘actualization’ of a feature – here: a subclass, the reference – which in turn refers to a person.
         <div class="text-right small">
           <a href="#ref">> Prefixes and Links</a><br/>
           <a href="#model">> The Model in Full</a>
-        </div></figcaption>
+        </div>
+      </figcaption>
     </figure>
   </div>
   
@@ -134,15 +144,27 @@ div {font-family: "Palatino", serif;}
 
  <div class="well" id="topic_7">
  	<h4>Texts and Text Passages<span class="small"> – Prioritizing Precision</span></h4>
-   <div>Similar to what the F22_Self-contained_Expression and the F24_Publication_Expression represent on the level of whole texts, the INT1_TextPassage and the INT16_Segment represent different notions of “parts of texts”: the former a part of a text as an intellectual creation or work, the latter a part of a specific version of a text (e.g. a print edition) – with the latter being the 'carrier' of the former.<br/>
-     The distinction made here is subtle, but necessary: The digital edition of Kraus’ late work <i>Dritte Walpurgisnacht</i> for example contains annotations to some 2,000 text passages quoting other texts. In many cases (often with regard to literary ‘classics’) these references target ‘texts’ in the broader sense of intellectual creations or works, with no indication of a specific edition. In other cases (e.g., when it comes to newspaper articles or recently published books), Kraus indeed refers to specific editions. The former can be represented by a reference to an INT1_TextPassage, the latter by a reference to an INT1_TextPassage passage incorporated in an INT16_Segment which in turn is linked to a text in its published form (a frbr:F24_Publication_Expression).</div>
-   <div class="text-right small"><a href="#model">> The Model in Full</a></div>
+   <div>Similar to what FRBRoo’s “Self-contained Expression” and “Publication Expression” represent on the level of whole texts, INTRO’s “TextPassage” and “Segment” represent different notions of ‘parts of texts’: the former a part of a text as an intellectual creation or work, the latter a part of a specific version of a text (e.g. a print edition) – with the latter being the ‘carrier’ of the former.<br/>
+     The distinction made here is subtle, but necessary: The digital edition of Kraus’s late work <i>Dritte Walpurgisnacht</i> for example contains annotations to some 2,000 text passages quoting other texts. In many cases (often with regard to literary ‘classics’) these references target ‘texts’ in the broader sense of intellectual creations or works, with no indication of a specific edition. In other cases (e.g., when it comes to current newspaper articles or other more recent publications), Kraus indeed refers to specific editions. The former can be represented by a reference to a “TextPassage”, the latter by a reference to an “TextPassage” passage incorporated in a “Segment” which in turn is linked to a text in its published form (FRBRoo’s “Publication Expression”).</div>
+   <div class="well bg-white">
+     <figure class="figure">
+       <img src="./img/TextPassage.svg" class="img-fluid" style="max-width: 100%" alt="Responsive image">
+       <figcaption class="figure-caption">
+         On the left: the published version of a text and a part (i.e. segment) of it; on the right: the same text as intellectual content and a part (i.e. passage) of it.
+         <div class="text-right small">
+           <a href="#ref">> Prefixes and Links</a><br/>
+           <a href="#model">> The Model in Full</a>
+         </div>
+       </figcaption>
+     </figure>
+   </div>
  </div>
 
  <div class="well" id="topic_8">
  	<h4>Intertextuality – Reified</h4>
  	<div>One of the key areas of the data model is concerned with intertextuality – since Karl Kraus is known for his highly differentiated art of quotation and his texts accordingly show a high frequency of references to other texts. There are many ways to categorize these references: In his literary writings, Kraus makes use of plain citation and quotation, parody, allusion, intentional misquotations, etc., his legal files quote texts that are the subject of dispute or serve as evidence for legal argumentation; in turn, excerpts from these legal files end up in <i>Die Fackel</i>.<br/> 
     SK provides the same modeling for all of these cases: An instance of INT3 Intertextual Relation connected via two properties to the referring and the referred to entities. Other vocabularies offer the possibility to represent intertextuality via properties specifying the mode of the reference. SK opted for INTRO’s more generic approach, since the reification that comes with it allows for the separation of representing the relation and categorizing it (by adding an E55 Type).</div>
+   <div class="text-right small"><a href="#model">> The Model in Full</a></div>
  </div>
     
     <div class="well" id="model">
